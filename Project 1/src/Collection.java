@@ -2,42 +2,104 @@
 public class Collection {
 
   // Declare n-element Array
-  // private int[] array = new int[]{};
+  private int[] array = new int[max]{};
 
   // Adds a Student object to the collection
   public string add() {
-    Student records = new Student();
+      Student records = new Student();
   }
+    // Searches the collection using the Binary Search algorithm
+    public int binarySearch(int value) {
+        int index = -1;
+        int lower = 0;
+        int upper = array.length - 1;
+        int current;
 
-  // Searches the collection using the Binary Search algorithm
-  public int binarySearch()  {
+        while (lower <= upper && index == -1) {
+            current = (lower + upper) / 2;
+            if (array[current] == value) {
+                index = current;
+            } else {
+                if (array[current] < value) {
+                    lower = current + 1;
+                } else {
+                    upper = current - 1;
+                }
+            }
+        }
+        return index;
+    }
 
-  }
 
-  // Sorts the collection on a student’s full name using the Bubble Sort algorithm
-  public int bubbleSort()  {
 
-  }
+    // Sorts the collection on a student’s full name using the Bubble Sort algorithm
+    public int bubbleSort()  {
+        for(int y = 0; y < numElems;  y++){
+            for(int x = 0; x < numElems - 1; x++) {
+                if(array[x] > array[x + 1]){
+                    swap(x, x + 1);
+                }
+            }
+        }
 
-  // Displays the student object data stored in the collection
-  public double display() {
 
-  }
+    }
 
-  // Calculates the average total points of the students stored in the collection
-  public double getAverage()  {
+    public void swap(int pos1, int pos2) {
+        int temp = array[pos1];
+        array[pos1] = array[pos2];
+        array[pos2] = temp;
+    }
 
-  }
 
-  // Calculates the maximum total points of the students stored in the collection
-  public int getMax() {
+    // Displays the student object data stored in the collection
+    public double display(String name, int position, int attempted, int completed, int total) {
 
-  }
+        showName = name;
+        showPosition = position;
+        showAttempted = attempted;
+        showCompleted = completed;
+        showTotal = total;
+        System.out.println(showName + showPosition + showAtempted + showCompleted + showTotal);
 
-  // Calculates the minimum total points of the students stored in the collection
-  public int getMin() {
+    }
 
-  }
+    // Calculates the average total points of the students stored in the collection
+    public double getAverage()  {
+        int sum = 0;
+        for (int i = 0; i < array.length; i++){
+            sum = sum + array[i];
+        }
+        double result = sum / array.length;
+        System.out.println(result);
+
+        return result;
+
+    }
+
+    // Calculates the maximum total points of the students stored in the collection
+    public int getMax() {
+        int max = 0;
+        for(int n = 0; n < array.length; n++){
+            if(array[n] > max){
+                max = array[n];
+            }
+        }
+        return max;
+
+    }
+
+    // Calculates the minimum total points of the students stored in the collection
+    public int getMin() {
+        int min = 0;
+        for (int n = 0; n < array.length; n++) {
+            if (array[n] < min) {
+                min = array[n];
+            }
+
+        }
+        return min;
+    }
 
   // Calculates the median total points of the students stored in the collection
   public int getMedian()  {
@@ -69,8 +131,15 @@ public class Collection {
 
   // Tests whether the collection is empty
   public bool isEmpty() {
+      if(collection != null && collection.isEmpty()){
+        return true;
+      }
+      else{
+          return false;
+      }
 
   }
+
 
   // Searches the collection using the Linear Search algorithm
   public int linearSearch(int value)  {
@@ -86,7 +155,10 @@ public class Collection {
   }
 
   // Removes a Student object from the collection
-  public double remove()  {
+  public double remove(array[] item, int index){
+      for (int i = 0; i < array.length; i++){
+          item[i] = "";
+      }
 
   }
 
