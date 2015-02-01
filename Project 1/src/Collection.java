@@ -1,14 +1,19 @@
 
 public class Collection {
-
+    
+  private int studentElement;
+  private int max;
+  
+  
+  
   // Declare n-element Array
-  private int[] array = new int[max]{};
+  private Student[] array = new Student[max];
 
   
   
   // Adds a Student object to the collection
-  public String add() {
-      Student records = new Student();
+  public void add(Student newStudent) {
+      array[studentElement++] = newStudent;
   }
   
   
@@ -42,7 +47,7 @@ public class Collection {
             for(int x = 0; x < numElems - 1; x++) {
                 if(array[x] > array[x + 1]){
                     swap(x, x + 1);
-                    bubbleSortCopyCount++
+                    bubbleSortCopyCount++;
                 }
             }
         }
