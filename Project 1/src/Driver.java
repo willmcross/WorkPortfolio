@@ -1,7 +1,18 @@
 
 public class Driver {
 
-  // Declarations and Runtime Constants
+  // reference to Collection object to be created from read input
+    private Collection coll;
+    
+    
+   //executes all methods in Driver
+    public void execute() throws IOException{
+        calculateStatistics();
+        searchCollection();
+        displayReport();
+        readInput();
+    }
+
 
         public void execute() throws IOException {
            ArrayList<String> list = new ArrayList<>();
@@ -42,6 +53,27 @@ public class Driver {
                
             }
             
-            
-            
     }
+
+        private void sortCollection () {             
+            
+        }
+        
+        private void searchCollection () {  
+ 
+        }
+               
+  
+        
+        private void displayReport() {
+             
+        }
+        
+        private void calculateStatistics() {
+            
+        }
+        
+        
+        
+        
+}
