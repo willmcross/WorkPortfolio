@@ -4,11 +4,15 @@ public class Collection {
   // Declare n-element Array
   private int[] array = new int[max]{};
 
+  
+  
   // Adds a Student object to the collection
-  public string add() {
+  public String add() {
       Student records = new Student();
   }
-    // Searches the collection using the Binary Search algorithm
+  
+  
+// Searches the collection using the Binary Search algorithm
     public int binarySearch(int value) {
         int index = -1;
         int lower = 0;
@@ -17,7 +21,7 @@ public class Collection {
 
         while (lower <= upper && index == -1) {
             current = (lower + upper) / 2;
-            if (array[current] == value) {
+            if ([current] == value) {
                 index = current;
             } else {
                 if (array[current] < value) {
