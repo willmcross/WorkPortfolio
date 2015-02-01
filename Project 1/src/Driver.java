@@ -1,11 +1,24 @@
 
-public class Driver {
+import java.io.*;
+import java.util.*;
 
-  // reference to Collection object to be created from read input
-    private Collection coll;
+/**
+ *
+ * @author Kanau
+ */
+public class Driver {
+    
+private final int SEARCH_LENGTH;
+private Collection coll;    
+  
+    public Driver() {
+        SEARCH_LENGTH = (int)(studentArray.length / 2); // Initialize the runtime constant
+        coll = new Collection();
+    }
     
     
-   //executes all methods in Driver
+    
+  
     public void execute() throws IOException{
         calculateStatistics();
         searchCollection();
@@ -13,8 +26,9 @@ public class Driver {
         readInput();
     }
 
-
-        public void execute() throws IOException {
+  
+    
+    public void readInput() throws IOException {
            ArrayList<String> list = new ArrayList<>();
 
 	// New BufferedReader.
@@ -41,26 +55,32 @@ public class Driver {
                 // splits each line into a token
                 StringTokenizer st = new StringTokenizer(line);
                 String info = st.nextToken();
-           
+            
                 // Takes each line, creates a series of variables from the substrings. Values correlate to Contest.Description. 
                 String studentFirstName = info.substring(0,9).trim();
-                String studentLastName =  info.substring(9,18).trim();
-                String finalPosition = info.substring(19, 20).trim();
+                String studentLastName =  info.substring(10,18).trim();
+                int finalPosition = Integer.parseInt(info.substring(19, 20).trim());
                 int projectAttempted = Integer.parseInt(info.substring(21,22).trim());
                 int projectCompleted = Integer.parseInt(info.substring(23).trim());
                 int totalPoints = Integer.parseInt(info.substring(24,27).trim());
-     
-               
-            }
+            
+                
+            }  
+            
             
     }
-
+        
+        
         private void sortCollection () {             
-            
-        }
+            coll.bubbleSort();
+            coll.selectionSort();
+            coll.insertionSort();
+    }
+        
         
         private void searchCollection () {  
- 
+            coll.linearSearch(SEARCH_LENGTH);
+            coll.binarySearch(SEARCH_LENGTH);
         }
                
   
@@ -77,3 +97,4 @@ public class Driver {
         
         
 }
+
