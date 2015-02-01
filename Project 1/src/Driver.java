@@ -80,7 +80,7 @@ private Collection coll;
 
 
 
-        private void displayReport() {
+        private displayReport() {
             System.out.println("James Spinella, Waseem Baraz, Rachel Bennett, Mike Cross");
             System.out.println("Project 1"\n);
             // Sort Algorithm Report
@@ -91,7 +91,7 @@ private Collection coll;
             // Records
             System.out.println("Student Name          Position  Attempted  Completed  Total Points")
             System.out.println("------------          -------------------  ---------  ------------")
-            System.out.println(
+            System.out.println();
             // ten records
             // Statistics Report
             System.out.println("Statistics Report:");
