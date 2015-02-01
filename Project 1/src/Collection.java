@@ -38,6 +38,7 @@ public class Collection {
             for(int x = 0; x < numElems - 1; x++) {
                 if(array[x] > array[x + 1]){
                     swap(x, x + 1);
+                    bubbleSortCopyCount++
                 }
             }
         }
@@ -124,6 +125,7 @@ public class Collection {
           while (x > 0 && array[x-1] >= temp){
               array[x] = array[x-1];
               x--;
+              selectionSortCopyCount++;
           }
           array[x] = temp;
       }
