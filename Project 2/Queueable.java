@@ -1,5 +1,3 @@
-package project2;
-
 /**
  * Provides the methods required to implement a priority queue of Card objects.
  * 

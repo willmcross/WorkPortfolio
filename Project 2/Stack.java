@@ -1,5 +1,3 @@
-package project2;
-
 /**
  * Provides the methods for a stack of Card objects.
  */
