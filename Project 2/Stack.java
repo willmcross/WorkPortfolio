@@ -10,7 +10,7 @@ public abstract class Stack implements Stackable {
     public void displayStack() {
         System.out.print("\nDeck: ");
         for(int x = top; x >= 0; x--) {
-            System.out.format("%s ", array[x]);
+            System.out.format("%s ", stack[x]);
         }
         System.out.println();
     }

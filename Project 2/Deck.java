@@ -5,9 +5,7 @@
 public class Deck extends Stack {
 
   int size;
-
-  size = // I'm not sure what it should equal, possibly a method from another class
-
+  size = stack;
   return super.size;
 
 }
