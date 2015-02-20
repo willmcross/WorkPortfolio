@@ -47,9 +47,11 @@ public class Player extends PriorityQueue {
     }
     //performs operations required to play a round (in game rules section)
     public playHand(){
+        int pos;
         Card min;
         int minimum = 0;
         int position = 0;
+        boolean found = false;
    
         matchCards();
         minimum = peek(0);
@@ -58,7 +60,26 @@ public class Player extends PriorityQueue {
                 minimum = peek(i);
                 position = i;
             }
-        }        
+        }
+        pos = position + 1;
+        while (pos != position && found == false){
+            if (pos == 4){
+                pos = 1;
+            }
+            Player next = array[pos];
+            min = next.doYouHaveAny(minimum);
+            if (min != null){
+                insert (min);
+                found = true;
+                matchCards();
+            }
+            pos++;
+        }
+        if (found == false){
+            drawCard();
+            matchCards();
+        }
+        
     }
     //stores specified card into player's discard pile
     private void discard(Card card){
@@ -82,7 +103,13 @@ public class Player extends PriorityQueue {
     }
     //determines player in next higher position
     private Player getNextPlayer(Player currentPlayer){
+        int pos = currentPlayer.getPosition();
         
+        if (pos == 3){
+            pos = 0;
+        }
+        //accesses array that stores player objects
+        return game.array[pos + 1];
     }
     //searches player's hand for matching pairs of cards
     //if match is found, pair of cards discarded into discard pile
