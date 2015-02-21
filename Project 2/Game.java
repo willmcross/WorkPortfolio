@@ -13,9 +13,10 @@ import java.io.FileReader;
  * @author Kanau
  */
 public class Game {
-
-    private Deck[] Deckcoll = new Deck[52];
-    private Player[] Playercoll = new Player[15];
+    
+    public int top = -1;
+    private int[] Deckcoll;
+    private int[] Playercoll;
     
     
     private void readFile () {
@@ -44,17 +45,19 @@ public class Game {
     }
     
     
-    public Deck getDeck(){
-        return ;
+    public int getDeck(){
+        return this.Deck;
     }
     
-    public Player getPlayer() {
-        return ;
+    public int getPlayer() {
+        return this.Player;
     }
     
     
-    private void dealCards (int numCards) {
-        // Pass a card from Deckcoll to Playercoll. No clue how.
+    private int dealCards (int numCards) {
+        
+        Deckcoll = new int [numCards];
+       return Deckcoll[--top];
     }
     
     private void Display () {
@@ -62,10 +65,10 @@ public class Game {
     }
     
     private void playGame () {
-        //Initialize game, mostly logic and busywork / math. Probably can do.
-    }
-    
-    
+        
+        
+        
+    }  
     
     
     
