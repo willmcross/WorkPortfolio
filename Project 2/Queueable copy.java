@@ -9,6 +9,8 @@
  * @since January 30, 2014
  */
 public interface Queueable {
+
+
     
     /**
      * Displays the Card objects stored in the stack.
@@ -24,12 +26,19 @@ public interface Queueable {
      * @param card The Card object to add.
      */
     public void insert(Card card);
+
+
+
+
     
     /**
      * Determines if the queue is empty.
      * @return True if the queue is empty; otherwise, false.
      */
     public boolean isEmpty();
+
+
+
     
     /**
      * Determines if the queue is full.
