@@ -1,18 +1,15 @@
 public class Queue implements Queueable {
 
-
-
     private int maxSize;
     private int front;
     private int rear;
     private int numElems;
     private int[] array;
 
-    public Queue(int size) {
+    public Queue (int size) {
         maxSize = size;
         array = new int[maxSize];
         front = -1;
-
     }
 
     public void insert(int value) {
@@ -21,26 +18,22 @@ public class Queue implements Queueable {
     }
 
     public boolean isEmpty() {
-        return numElems == 0;
+        return numElems ==0;
 
     }
 
     public boolean isFull() {
-
         return numElems == maxSize;
     }
-
-
-    public int remove(int position) {
+    public int remove() {
         numElems--;
         return array[front++];
     }
 
     public int size() {
-
         return numElems;
     }
-    
+
     /**
      * Displays the Card objects stored in the queue.
      */

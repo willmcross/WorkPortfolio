@@ -2,9 +2,9 @@
  * Provides the methods for a priority queue of State objects.
  */
 public abstract class PriorityQueue implements Queueable {
-    private int maxSize;
-    private int numElems = 0;
-    private int[] array;
+    public int maxSize;
+    public int numElems = 0;
+    public int[] array;
 
     public PriorityQueue(int size) {
         maxSize = size;
@@ -23,20 +23,23 @@ public abstract class PriorityQueue implements Queueable {
                 array[x] = array[x - 1];
                 x--;
             }
-            array[x] = item
-                    numElems++;
+            array[x] = item;
+            numElems++;
         }
     }
 
     public boolean isEmpty() {
+
         return numElems == 0;
     }
 
     public boolean isFull() {
+
         return numELems == maxSize;
     }
 
     public int remove() {
+
         return array[-- numElems];
     }
     
