@@ -9,7 +9,7 @@ public abstract class Stack implements Stackable {
 
   public Stack (int size) {
       maxSize = size;
-      array = new int[maxSize];
+      array = new stack[maxSize]; //should be stack[maxSize] rather than int[maxSize]?
       front = -1;
   }
 
