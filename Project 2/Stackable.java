@@ -38,5 +38,5 @@ public interface Stackable {
      * Adds a Card object to the top of the stack.
      * @param card The Card object to add.
      */
-    public void push(Card card);
+    public void push();
 }
