@@ -14,18 +14,17 @@ public class Card  extends CardData {
     CardData foo = new Card();
     
     public String getFace(){
-        return this.face;
+        return foo.face;
     }
             
     public int getValue () {
-        return this.value;
+        return foo.value;
     }        
     
     
-    @Override
     public void toString () {
-        this.face.toString();
-        this.value.toString();
+        foo.face.toString();
+        foo.value.toString();
     }
     
 }

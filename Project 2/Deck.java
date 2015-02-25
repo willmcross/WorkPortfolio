@@ -1,11 +1,15 @@
+package project2;
+
 /**
  * Inherits Stack, passes a size parameter to Stack via Super
  */
 
-public class Deck extends Stack {
+public class Deck extends Stack{
 
-  int size;
-  size = stack;
-  return super.size;
+ public int Deck(int size) {
+     
+  size = Stack.;
+  return super.;
 
+    }
 }

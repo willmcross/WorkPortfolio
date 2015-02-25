@@ -6,6 +6,7 @@
 package project2;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 /**
@@ -14,49 +15,54 @@ import java.io.FileReader;
  */
 public class Game {
     
+    
+   
     public int top = -1;
     private int[] Deckcoll;
     private int[] Playercoll;
+        
     
     
     private void readFile () {
-        	
+        try {	
         
         BufferedReader reader = new BufferedReader(new FileReader(
 		"C:\\Cards.Input.txt"));
 
 
-        String line;
 	// Add all lines from file to ArrayList.
 	while (!(line = reader.readLine()).equals("")) {
 
-	    Deckcoll.add(new Card(line));
+	    Deckcoll.add(new CardData.card());
 	}
 
 	// Close it.
 	reader.close();
+        
+        } catch (e){
+            
+        }
     }
-    
-    
-    
+
+ 
     public void execute() {
-        Deck Deckcoll = new Deck();
-        Player Playercoll = new Player();
+        Deck Deckcoll = new Deck[52];
+        Player Playercoll = new Player[14];
     }
     
     
     public int getDeck(){
-        return this.Deck;
+        return this.Deckcoll[0];
     }
     
     public int getPlayer() {
-        return this.Player;
+        return this.Playercoll[0];
     }
     
     
     private int dealCards (int numCards) {
         
-        Deckcoll = new int [numCards];
+        ;
        return Deckcoll[--top];
     }
     

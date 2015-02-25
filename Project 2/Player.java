@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Project2;
+package project2;
 
 /**
  *
@@ -26,8 +26,8 @@ public class Player extends PriorityQueue {
         this.game = game;
     }
     //displays player's name, cards in hand and in discard pile
-    public void display(){
-        System.out.println(name + "\n" + displayHand() + "\n" + q.displayHand());
+    public String displayHand(){
+        System.out.println(name + "\n" + displayHand() + "\n" + q.());
     }
     //determines if player is holding specified type of card in hand
     //if so, one card is returned, otherwise, null is returned
