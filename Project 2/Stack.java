@@ -33,7 +33,7 @@ public abstract class Stack implements Stackable {
    * @return The Card object that was removed.
    */
   public Card pop()   {
-    while (!stack.isEmpty()) { // Calling isEmpty() prevents outOfBounds Exception
+    while (!isEmpty()) { // Calling isEmpty() prevents outOfBounds Exception
       return stack[top--];
     }
   }
@@ -44,8 +44,8 @@ public abstract class Stack implements Stackable {
    * @param card The Card object to add.
    */
   public void push(Card card) {
-    while (!stack.isFull)) { // Calling isFull() prevents outOfBounds Exception
-      return stack[top++];
+    while (!isFull()) { // Calling isFull() prevents outOfBounds Exception
+      stack[top++] = card;
     }
   }
 
