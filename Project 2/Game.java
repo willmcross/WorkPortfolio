@@ -15,68 +15,66 @@ import java.io.FileReader;
  */
 public class Game {
     
-    
-   
+    Game Gameref = new Game();
+    Deck Deckref = new Deck();
     public int top = -1;
-    private int[] Deckcoll;
-    private int[] Playercoll;
+    Player Player1 = new Player(15, "Player 1", 0, this.Gameref);
+    Player Player2 = new Player(15, "Player 1", 1, this.Gameref);
+    Player Player3 = new Player(15, "Player 1", 2, this.Gameref);
+    Player Player4 = new Player(15, "Player 1", 3, this.Gameref);
+    Player[] Playerlist = {Player1, Player2, Player3, Player4};
+ 
         
     
     
     private void readFile () {
-        try {	
+
         
         BufferedReader reader = new BufferedReader(new FileReader(
 		"C:\\Cards.Input.txt"));
 
-
+        String line;
 	// Add all lines from file to ArrayList.
 	while (!(line = reader.readLine()).equals("")) {
 
-	    Deckcoll.add(new CardData.card());
+	    Deck.add(new String(line));
 	}
 
 	// Close it.
 	reader.close();
         
-        } catch (e){
-            
-        }
     }
 
- 
     public void execute() {
-        Deck Deckcoll = new Deck[52];
-        Player Playercoll = new Player[14];
-    }
+           }
     
     
     public int getDeck(){
-        return this.Deckcoll[0];
+        return this.Deckref;
     }
     
-    public int getPlayer() {
-        return this.Playercoll[0];
+    public int getPlayer(int Player) {
+        
+        return Player;
     }
     
     
     private int dealCards (int numCards) {
-        
-        ;
-       return Deckcoll[--top];
+       numCards = Deckref.Deck(top);
+       return numCards;
     }
     
     private void Display () {
-        // This part is fuzzy, I need to ask littleton what he means by this function.
+        Playercoll[1].displayHand();
     }
     
     private void playGame () {
         
-        
+        while (Player)
         
     }  
     
-    
+   
     
     
 }
