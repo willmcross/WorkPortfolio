@@ -1,3 +1,5 @@
+package project2;
+
 /**
  * Provides the methods for a priority queue of State objects.
  */
@@ -35,7 +37,7 @@ public abstract class PriorityQueue implements Queueable {
 
     public boolean isFull() {
 
-        return numELems == maxSize;
+        return numElems == maxSize;
     }
 
     public int remove() {

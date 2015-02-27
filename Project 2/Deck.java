@@ -9,7 +9,7 @@ public class Deck extends Stack{
  public int Deck(int size) {
      
   size = Stack.;
-  return super.;
+  return super.Deck;
 
     }
 }

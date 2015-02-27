@@ -1,9 +1,11 @@
+package project2;
+
 /**
  * Provides the methods required to implement a priority queue of Card objects.
  * 
  * This interface MUST be implemented by a class.
- * i.e., public class Queue implements Queueable {
- * i.e., public class PriorityQueue implements Queueable {
+ * i.e., public class Queue implements Queue {
+ * i.e., public class PriorityQueue implements Queue {
  * 
  * @author Jim Littleton
  * @since January 30, 2014

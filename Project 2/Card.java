@@ -21,10 +21,12 @@ public class Card  extends CardData {
         return foo.value;
     }        
     
-    
+    @Override
     public void toString () {
         foo.face.toString();
-        foo.value.toString();
+        Integer.toString(foo.value);
+        
     }
+    
     
 }

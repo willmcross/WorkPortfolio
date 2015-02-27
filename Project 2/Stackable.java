@@ -1,3 +1,4 @@
+package project2;
 /**
  * Provides the methods required to implement a stack of Card objects.
  *
@@ -36,7 +37,6 @@ public interface Stackable {
 
     /**
      * Adds a Card object to the top of the stack.
-     * @param card The Card object to add.
      */
     public void push();
 }

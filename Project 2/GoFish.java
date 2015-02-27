@@ -7,10 +7,11 @@ package Project2;
 *
 * Go Fish! Project
 */
-public class GoFish extends Game {
+public class GoFish {
 
+    Game g = new Game();
     
     public static void main (String[] args){
-        Game.execute();
+        g.execute();
     }
 }

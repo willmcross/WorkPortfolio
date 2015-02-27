@@ -54,8 +54,6 @@ public class Game {
     }
     
     public int getPlayer(int Player) {
-        
-        return Player;
     }
     
     
@@ -65,7 +63,10 @@ public class Game {
     }
     
     private void Display () {
-        Playercoll[1].displayHand();
+        Player1.displayHand();
+        Player2.displayHand();
+        Player3.displayHand();
+        Player4.displayHand();
     }
     
     private void playGame () {
