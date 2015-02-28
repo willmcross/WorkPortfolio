@@ -40,8 +40,8 @@ public abstract class PriorityQueue implements Queueable {
         return numElems == maxSize;
     }
 
-    public int remove() {
-
+    @Override
+    public Card remove() {
         return array[-- numElems];
     }
     

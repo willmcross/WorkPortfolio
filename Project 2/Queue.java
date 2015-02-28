@@ -27,7 +27,7 @@ public class Queue implements Queueable {
     public boolean isFull() {
         return numElems == maxSize;
     }
-    public int remove() {
+    public Card remove() {
         numElems--;
         return array[front++];
     }

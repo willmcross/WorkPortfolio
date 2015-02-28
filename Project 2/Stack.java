@@ -1,3 +1,5 @@
+package project2;
+
 /**
  * Provides the methods for a stack of Card objects.
  */
@@ -5,12 +7,11 @@ public abstract class Stack implements Stackable {
 
   private int maxSize;
   private int top = -1;
-  private int[] stack; // Link it to the deck of cards
+  private Card[] stack; // Link it to the deck of cards
 
   public Stack (int size) {
       maxSize = size;
-      array = new stack[maxSize]; //should be stack[maxSize] rather than int[maxSize]?
-      front = -1;
+      stack = new Card[maxSize]; //should be stack[maxSize] rather than int[maxSize]?
   }
 
   /**
@@ -34,8 +35,9 @@ public abstract class Stack implements Stackable {
    */
   public Card pop()   {
     while (!isEmpty()) { // Calling isEmpty() prevents outOfBounds Exception
-      return stack[top--];
+      
     }
+    return stack[top--];
   }
 
 

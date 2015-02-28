@@ -27,7 +27,7 @@ public class Game {
         
     
     
-    private void readFile () {
+    private void readFile () throws FileNotFoundException {
 
         
         BufferedReader reader = new BufferedReader(new FileReader(
@@ -46,6 +46,7 @@ public class Game {
     }
 
     public void execute() {
+        dealCards(1);
            }
     
     
@@ -54,11 +55,13 @@ public class Game {
     }
     
     public int getPlayer(int Player) {
+        
+        return Player[x];
     }
     
     
     private int dealCards (int numCards) {
-       numCards = Deckref.Deck(top);
+      numCards = Deckref.Deck(top);        
        return numCards;
     }
     
