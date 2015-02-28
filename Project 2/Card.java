@@ -9,7 +9,7 @@ package project2;
  *
  * @author Kanau
  */
-public class Card  extends CardData {
+public class Card extends CardData {
     
     CardData foo = new Card();
     
@@ -21,11 +21,11 @@ public class Card  extends CardData {
         return foo.value;
     }        
     
-    @Override
-    public void toString () {
+    
+    public String toString () {
         foo.face.toString();
         Integer.toString(foo.value);
-        
+        return foo.toString();    
     }
     
     
