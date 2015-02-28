@@ -35,6 +35,25 @@ public class Queue implements Queueable {
     public int size() {
         return numElems;
     }
+    
+    public int peek()   {
+        return Card.position;
+    }
+    
+    public int peek(int position)   {
+        while(!isFull())    {
+            return Card.position;
+        }
+    }
+    
+    public Card remove()    {
+        
+    }
+    
+    public Card remove(int position)    {
+        
+    }
+    
 
     /**
      * Displays the Card objects stored in the queue.
