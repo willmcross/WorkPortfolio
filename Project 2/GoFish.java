@@ -12,6 +12,6 @@ public class GoFish {
     Game g = new Game();
     
     public static void main (String[] args){
-        g.execute();
+        Game.execute();
     }
 }
