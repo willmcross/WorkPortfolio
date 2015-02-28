@@ -15,6 +15,19 @@ public abstract class Stack implements Stackable {
   }
 
   /**
+   * Displays the Card objects stored in the stack.
+   * Hint: Start at the top and work your way down to 0.
+   */
+  @Override
+  public void displayStack() {
+      System.out.print("\nDeck: ");
+      for(int x = top; x >= 0; x--) {
+          System.out.format("%s ", stack[x]);
+      }
+      System.out.println();
+  }
+
+  /**
    * Determines if the stack is empty.
    * @return True if the stack is empty; otherwise, false.
    */
@@ -35,7 +48,7 @@ public abstract class Stack implements Stackable {
    */
   public Card pop()   {
     while (!isEmpty()) { // Calling isEmpty() prevents outOfBounds Exception
-      
+
     }
     return stack[top--];
   }
@@ -50,19 +63,4 @@ public abstract class Stack implements Stackable {
       stack[top++] = card;
     }
   }
-
-
-
-    /**
-     * Displays the Card objects stored in the stack.
-     * Hint: Start at the top and work your way down to 0.
-     */
-    @Override
-    public void displayStack() {
-        System.out.print("\nDeck: ");
-        for(int x = top; x >= 0; x--) {
-            System.out.format("%s ", stack[x]);
-        }
-        System.out.println();
-    }
 }
