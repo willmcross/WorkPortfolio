@@ -10,8 +10,16 @@ package project2;
  * @author Kanau
  */
 public class Card extends CardData {
+   
     
-    CardData foo = new Card();
+    
+    Card foo = new Card(value);
+    
+     Card (int value) {
+        foo.generateFace(value);
+        foo.generateSuit(value, true);
+}
+    
     
     public String getFace(){
         return foo.face;

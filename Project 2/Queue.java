@@ -6,11 +6,11 @@ public class Queue implements Queueable {
     private int front;
     private int rear;
     private int numElems;
-    private int[] array;
+    private Card[] array;
 
     public Queue (int size) {
         maxSize = size;
-        array = new int[maxSize];
+        array = new Card[maxSize];
         front = numElems;
         rear = -1;
     }
@@ -26,7 +26,7 @@ public class Queue implements Queueable {
     }
 
     public void insert(Card card) {
-        array[++rear] = value;
+        array[++rear] = card;
         numElems++;
     }
 
@@ -39,22 +39,36 @@ public class Queue implements Queueable {
         return numElems == maxSize;
     }
 
-    public int peek()   {
-        return Card.position;
+    public Card peek()   {
+        Card card = null;
+        if(!isEmpty()){
+            card = array[front];
+        }
+        return card;
     }
 
     public int peek(int position)   {
-        while(!isFull())    {
-            return Card.position;
-        }
+        return array[position].getValue();
     }
 
     public Card remove()    {
-      numElems--;
-      return array[front++];
+        Card card = null;
+        if(!isEmpty()) {
+            card = array[front++];
+            }
+            return array[front++];
     }
 
     public Card remove(int position)  {
-
+        Card card = null;
+        if(!isEmpty()){
+            card = array[position];
+            
+            for (int x = position; x < rear; x++) {
+                array[x] = array[x+1];
+            }
+            rear--;
+        }
+        return card;
     }
 }

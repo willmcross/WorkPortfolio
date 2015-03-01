@@ -6,10 +6,8 @@ package project2;
 
 public class Deck extends Stack{
 
- public int Deck() {
-     
-  size = super.Stack;
-  return super.;
 
+ Deck(int size) { 
+     super(size);
     }
 }

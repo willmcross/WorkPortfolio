@@ -11,8 +11,10 @@ package project2;
  */
 public class Player extends PriorityQueue {
     
+   
+    
     //reference q represents player's hand
-    private Queue q = new Queue();
+    private Queue q = new Queue(maxSize);
     private String name;
     private int position;
     //instance of game, tells player what game they're playing
@@ -28,7 +30,10 @@ public class Player extends PriorityQueue {
     //displays player's name, cards in hand and in discard pile
     public String displayHand(){
         System.out.println(name + "\n" + displayHand() + "\n" + q.());
+        
     }
+    
+    
     //determines if player is holding specified type of card in hand
     //if so, one card is returned, otherwise, null is returned
     public Card doYouHaveAny(int card){ //int card is number player is looking for
@@ -46,7 +51,7 @@ public class Player extends PriorityQueue {
         return position;
     }
     //performs operations required to play a round (in game rules section)
-    public playHand(){
+    public int playHand() {
         int pos;
         Card min;
         int minimum = 0;
