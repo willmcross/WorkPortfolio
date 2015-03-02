@@ -1,17 +1,15 @@
-package project2;
 
 /**
  * Provides the methods for a stack of Card objects.
  */
-public abstract class Stack implements Stackable {
+public class Stack implements Stackable {
 
-  private int maxSize;
+  private int maxSize = 52;
   private int top = -1;
   private Card[] stack; // Link it to the deck of cards
 
   public Stack (int size) {
-      maxSize = size;
-      stack = new Card[maxSize]; //should be stack[maxSize] rather than int[maxSize]?
+      stack = new Card[size]; //should be stack[maxSize] rather than int[maxSize]?
   }
 
   /**
@@ -24,7 +22,6 @@ public abstract class Stack implements Stackable {
       for(int x = top; x >= 0; x--) {
           System.out.format("%s ", stack[x]);
       }
-      System.out.println();
   }
 
   /**
@@ -47,10 +44,10 @@ public abstract class Stack implements Stackable {
    * @return The Card object that was removed.
    */
   public Card pop()   {
-    while (!isEmpty()) { // Calling isEmpty() prevents outOfBounds Exception
-
+    if (isEmpty() == false) { // Calling isEmpty() prevents outOfBounds Exception
+      return stack[top--];    
     }
-    return stack[top--];
+    else return null;
   }
 
 
@@ -59,8 +56,10 @@ public abstract class Stack implements Stackable {
    * @param card The Card object to add.
    */
   public void push(Card card) {
-    while (!isFull()) { // Calling isFull() prevents outOfBounds Exception
-      stack[top++] = card;
-    }
+   // if (isFull() == true) { // Calling isFull() prevents outOfBounds Exception
+      top++;
+      stack[top] = card;
+
+  //  }
   }
 }

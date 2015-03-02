@@ -1,4 +1,3 @@
-package project2;
 
 /**
  * Provides the methods for a priority queue of State objects.
@@ -6,43 +5,65 @@ package project2;
 public abstract class PriorityQueue implements Queueable {
     public int maxSize;
     public int numElems = 0;
-    public int[] array;
+    public Card[] array;
 
     public PriorityQueue(int size) {
-        maxSize = size;
-        array = new int [maxSize];
+        array = new Card[size];
     }
 
-    public void insert (int item) {
-        int x;
-
-        if (numElems == 0) {
-            array[numElems++] = item;
-        }
-        else {
-            x = numElems;
-            while(x > 0 && item > array[x - 1]) {
-                array[x] = array[x - 1];
-                x--;
-            }
-            array[x] = item;
-            numElems++;
-        }
+    public void insert (Card card) {
+        array[numElems++] = card;
     }
 
     public boolean isEmpty() {
-
         return numElems == 0;
     }
 
     public boolean isFull() {
-
-        return numElems == maxSize;
+        return numElems > array.length;
     }
 
-    @Override
+    public Card peek() {
+        Card card = null;
+        if (!isEmpty()) {
+            card = array[numElems];
+        }
+        return card;
+    }
+    
+    public int peek(int position){
+      int cardValue = 0;
+      
+      if(array[position] != null)
+         cardValue = array[position].getValue();
+      
+      return cardValue;   
+    }
+    
     public Card remove() {
-        return array[-- numElems];
+        int minIndex = 0;
+        Card min = array[0];
+        
+        for (int i=0; i < numElems; i++) {
+            if (min.getValue() > array[i].getValue()) {
+                minIndex =i;
+                min = array[i];
+            }
+        }
+        for (int i = minIndex; i < numElems; i++){
+            array[i] = array[i+1];
+        }
+        numElems--;
+        return min;
+    }
+    
+    public Card remove(int position){
+        Card c = array[position];
+        for (int i = position; i < numElems; i++){
+            array[i] = array[i + 1];
+        }
+        numElems--;
+        return c;
     }
     
     /**
@@ -53,5 +74,6 @@ public abstract class PriorityQueue implements Queueable {
         for (int x = numElems - 1; x >= 0; x--) {
             System.out.format("%s ", array[x]);
         }
+        System.out.println();
     }
 }

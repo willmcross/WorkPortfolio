@@ -3,29 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package project2;
 
 /**
  *
  * @author Kanau
  */
-public class Card extends CardData {
+public class Card extends CardData {  
     
-    CardData foo = new Card();
+     public Card (int value) {
+        generateFace(value);
+        generateSuit(value, false);
+    }
+    
     
     public String getFace(){
-        return foo.face;
+        return face;
     }
             
     public int getValue () {
-        return foo.value;
+        return value;
     }        
     
     
     public String toString () {
-        foo.face.toString();
-        Integer.toString(foo.value);
-        return foo.toString();    
+        String card = value + face;
+        return card;   
     }
     
     

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package project2;
 
 /**
  *
@@ -11,8 +10,10 @@ package project2;
  */
 public class Player extends PriorityQueue {
     
+   
+    
     //reference q represents player's hand
-    private Queue q = new Queue();
+    private Queue q = new Queue(52);
     private String name;
     private int position;
     //instance of game, tells player what game they're playing
@@ -26,16 +27,22 @@ public class Player extends PriorityQueue {
         this.game = game;
     }
     //displays player's name, cards in hand and in discard pile
-    public String displayHand(){
-        System.out.println(name + "\n" + displayHand() + "\n" + q.());
+    public void display(){
+        System.out.println(name + "\n");
+        System.out.print("Hand: ");
+        displayHand();
+        System.out.print("\nDiscard: ");
+        q.displayQueue();
+        System.out.println();
     }
+       
     //determines if player is holding specified type of card in hand
     //if so, one card is returned, otherwise, null is returned
     public Card doYouHaveAny(int card){ //int card is number player is looking for
         Card c = null; //object of card class
         
         for (int i = 0; i < 15; i++){
-            if (peek(i) != null && peek(i) == card){
+            if (peek(i) != -1 && peek(i) == card){
                 c = remove(i);
             }
         }
@@ -46,27 +53,25 @@ public class Player extends PriorityQueue {
         return position;
     }
     //performs operations required to play a round (in game rules section)
-    public playHand(){
+    public void playHand() {
         int pos;
         Card min;
-        int minimum = 0;
-        int position = 0;
+        int minimum;
         boolean found = false;
    
         matchCards();
         minimum = peek(0);
         for (int i = 1; i < 15; i++){
-            if (peek(i) != null && minimum > peek(i)){
+            if (peek(i) != -1 && minimum > peek(i)){
                 minimum = peek(i);
-                position = i;
             }
         }
         pos = position + 1;
         while (pos != position && found == false){
             if (pos == 4){
-                pos = 1;
+                pos = 0;
             }
-            Player next = array[pos];
+            Player next = game.Playerlist[pos];
             min = next.doYouHaveAny(minimum);
             if (min != null){
                 insert (min);
@@ -86,7 +91,7 @@ public class Player extends PriorityQueue {
         q.insert(card);
     }
     //displays cards in player's hand
-    private void displayHand(){
+    public void displayHand(){
         //part of priority queue, parent class
         displayQueue();
     }
@@ -96,7 +101,7 @@ public class Player extends PriorityQueue {
         q.displayQueue();
     }
     //draws a card from the deck of cards (the deck object)
-    private void drawCard(){
+    public void drawCard(){
         Deck d = game.getDeck();
         //pop card from deck and insert into player hand
         insert(d.pop());
@@ -109,7 +114,7 @@ public class Player extends PriorityQueue {
             pos = 0;
         }
         //accesses array that stores player objects
-        return game.array[pos + 1];
+        return game.Playerlist[pos + 1];
     }
     //searches player's hand for matching pairs of cards
     //if match is found, pair of cards discarded into discard pile
@@ -117,7 +122,8 @@ public class Player extends PriorityQueue {
         for (int i = 0; i < 15; i++){
             for (int j = 0; j < 15; j++){
                 //peek i is value at location
-                if (peek(i) != null && peek(j) != null && peek(i) == peek(j) && i != j){
+
+                if ((peek(i) != -1) && (peek(j) != -1) && (peek(i) == peek(j)) && (i != j)){
                     //removes cards and stores them in discard pile
                     discard(remove(i));
                     discard(remove(j));

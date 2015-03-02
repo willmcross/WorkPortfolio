@@ -1,4 +1,3 @@
-package project2;
 
 /**
  * Provides operations for managing a deck of playing cards.
@@ -61,6 +60,8 @@ public abstract class CardData {
      * @param netbeans True if using NetBeans; otherwise, false.
      * @return returns the Suit of the card (Spades, Hearts, Clubs and Diamonds)
      */
+     
+    // boolean netbeans
     protected String generateSuit(int id, boolean netbeans) {
         String cardSuit;
 
