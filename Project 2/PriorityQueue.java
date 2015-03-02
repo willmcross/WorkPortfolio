@@ -6,47 +6,43 @@ package project2;
 public abstract class PriorityQueue implements Queueable {
     public int maxSize;
     public int numElems = 0;
-    public Card[] array;
+    public int[] array;
 
     public PriorityQueue(int size) {
-        array = new Card[size];
+        maxSize = size;
+        array = new int [maxSize];
     }
 
-    public void insert (Card card) {
-        array[numElems++] = card;
+    public void insert (int item) {
+        int x;
+
+        if (numElems == 0) {
+            array[numElems++] = item;
+        }
+        else {
+            x = numElems;
+            while(x > 0 && item > array[x - 1]) {
+                array[x] = array[x - 1];
+                x--;
+            }
+            array[x] = item;
+            numElems++;
+        }
     }
 
     public boolean isEmpty() {
+
         return numElems == 0;
     }
 
     public boolean isFull() {
-        return numElems > array.length;
+
+        return numElems == maxSize;
     }
 
-    public Card peek() {
-        Card card = null;
-        if (!isEmpty()) {
-            card = array[numElems];
-        }
-        return card;
-    }
-    
+    @Override
     public Card remove() {
-        int minIndex = 0;
-        Card min = array[0];
-        
-        for (int i=0; i < numElems; i++) {
-            if (min.getValue() > array[i].getValue()) {
-                minIndex =i;
-                min = array[i];
-            }
-        }
-        for (int i = minIndex; i < numElems; i++){
-            array[i] = array[i+1];
-        }
-        numElems--;
-        return min;
+        return array[-- numElems];
     }
     
     /**

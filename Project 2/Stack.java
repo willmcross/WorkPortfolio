@@ -10,7 +10,8 @@ public abstract class Stack implements Stackable {
   private Card[] stack; // Link it to the deck of cards
 
   public Stack (int size) {
-      stack = new Card[size]; //should be stack[maxSize] rather than int[maxSize]?
+      maxSize = size;
+      stack = new Card[maxSize]; //should be stack[maxSize] rather than int[maxSize]?
   }
 
   /**
@@ -47,6 +48,7 @@ public abstract class Stack implements Stackable {
    */
   public Card pop()   {
     while (!isEmpty()) { // Calling isEmpty() prevents outOfBounds Exception
+
     }
     return stack[top--];
   }
@@ -58,7 +60,7 @@ public abstract class Stack implements Stackable {
    */
   public void push(Card card) {
     while (!isFull()) { // Calling isFull() prevents outOfBounds Exception
-      stack[++top] = card;
+      stack[top++] = card;
     }
   }
 }

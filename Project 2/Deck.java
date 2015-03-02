@@ -6,8 +6,11 @@ package project2;
 
 public class Deck extends Stack{
 
+ public int Deck(int size) {
+     
+  ;
+  
+  return ;
 
- Deck(int size) { 
-     super(size);
     }
 }

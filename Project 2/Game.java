@@ -8,7 +8,6 @@ package project2;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 
 /**
  *
@@ -17,29 +16,28 @@ import java.io.IOException;
 public class Game {
     
     Game Gameref = new Game();
-    Deck Deckref = new Deck(52);
+    Deck Deckref = new Deck();
     public int top = -1;
     Player Player1 = new Player(15, "Player 1", 0, this.Gameref);
-    Player Player2 = new Player(15, "Player 2", 1, this.Gameref);
-    Player Player3 = new Player(15, "Player 3", 2, this.Gameref);
-    Player Player4 = new Player(15, "Player 4", 3, this.Gameref);
+    Player Player2 = new Player(15, "Player 1", 1, this.Gameref);
+    Player Player3 = new Player(15, "Player 1", 2, this.Gameref);
+    Player Player4 = new Player(15, "Player 1", 3, this.Gameref);
     Player[] Playerlist = {Player1, Player2, Player3, Player4};
  
         
     
     
-    private void readFile () throws FileNotFoundException, IOException {
-       
+    private void readFile () throws FileNotFoundException {
+
         
         BufferedReader reader = new BufferedReader(new FileReader(
 		"C:\\Cards.Input.txt"));
 
         String line;
-        Card temp;
 	// Add all lines from file to ArrayList.
 	while (!(line = reader.readLine()).equals("")) {
-                temp = new Card(Integer.parseInt(line));
-                    Deckref.push(temp);
+
+	    Deck.add(new String(line));
 	}
 
 	// Close it.
@@ -47,24 +45,23 @@ public class Game {
         
     }
 
-    public void execute() throws IOException {
-        readFile();
+    public void execute() {
         dealCards(1);
-        
            }
     
     
-    public Deck getDeck(){
+    public int getDeck(){
         return this.Deckref;
     }
     
     public int getPlayer(int Player) {
-      return Player1.getPosition();
-                }
+        
+        return Player[x];
+    }
     
     
     private int dealCards (int numCards) {
-      Deckref.pop();
+      numCards = Deckref.Deck(top);        
        return numCards;
     }
     
@@ -76,6 +73,8 @@ public class Game {
     }
     
     private void playGame () {
+        
+        while (Player)
         
     }  
     
