@@ -1,18 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+
+/**
+ * Methods for the procedural "game" itself
  */
+
 
 import java.io.File;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-/**
- *
- * @author Kanau
- */
 public class Game {
     private Game Gameref;
     private Deck Deckref;
@@ -21,7 +17,7 @@ public class Game {
     private Player Player3;
     private Player Player4;
     public Player[] Playerlist;
-    
+
     public Game(){
         // Gameref = new Game();
         Deckref = new Deck(52);
@@ -29,25 +25,25 @@ public class Game {
         Player2 = new Player(15, "Player 2", 1, this);
         Player3 = new Player(15, "Player 3", 2, this);
         Player4 = new Player(15, "Player 4", 3, this);
-        Playerlist = new Player[4]; 
-        Playerlist[0] = Player1; 
-        Playerlist[1] = Player2; 
+        Playerlist = new Player[4];
+        Playerlist[0] = Player1;
+        Playerlist[1] = Player2;
         Playerlist[2] = Player3;
         Playerlist[3] = Player4;
-        execute(); 
+        execute();
 }
- 
-        
-    
-    
+
+
+
+
     private void readFile (){
-       
+
        File file = new File("CardsInput.txt");
-       
+
        try {
-       
+
          Scanner filereader = new Scanner(file);
-         
+
         String line;
         Card temp;
 	      // Add all lines from file to ArrayList.
@@ -55,14 +51,14 @@ public class Game {
                 temp = new Card(filereader.nextInt());
                 Deckref.push(temp);
          }
-         
-        
+
+
          Deckref.displayStack();
-         
-         filereader.close(); 
+
+         filereader.close();
          }
          catch(FileNotFoundException e) {
-            e.printStackTrace();    
+            e.printStackTrace();
 	      }
       }
 
@@ -79,27 +75,27 @@ public class Game {
            }
            else {
                Playerlist[rounds%4].playHand();
-               rounds++;  
+               rounds++;
            }
         }
        System.out.println("After " + rounds + " rounds\n");
        Player1.display();
        Player2.display();
        Player3.display();
-       Player4.display(); 
-       Deckref.displayStack();      
+       Player4.display();
+       Deckref.displayStack();
     }
-    
-    
+
+
     public Deck getDeck(){
         return this.Deckref;
     }
-    
+
     public int getPlayer(int Player) {
       return Player1.getPosition();
     }
-    
-    
+
+
     private void dealCards() {
       for (int i = 0; i < 7; i++) {
          Player1.drawCard();
@@ -108,19 +104,19 @@ public class Game {
          Player4.drawCard();
       }
     }
-    
+
     private void Display () {
         Player1.display();
         Player2.display();
         Player3.display();
         Player4.display();
     }
-    
+
     private void playGame () {
-        
-    }  
-    
-   
-    
-    
+
+    }
+
+
+
+
 }

@@ -1,4 +1,8 @@
 
+/**
+ * Methods for the Discard Pile
+ */
+
 public class Queue implements Queueable {
 
     private int maxSize;
@@ -7,6 +11,7 @@ public class Queue implements Queueable {
     private int numElems = 0;
     private Card[] array;
 
+    /* Instantiates new array */
     public Queue (int size) {
         maxSize = size;
         array = new Card[maxSize];
@@ -31,15 +36,18 @@ public class Queue implements Queueable {
         numElems++;
     }
 
+    /* Tests to see if Player's hand is empty */
     public boolean isEmpty() {
         return numElems == 0;
 
     }
 
+    /* Tests to see if Discard Pile is full */
     public boolean isFull() {
         return numElems == maxSize;
     }
 
+    /* Returns front card in Discard Pile */
     public Card peek()   {
         Card card = null;
         if(!isEmpty()){
@@ -48,10 +56,12 @@ public class Queue implements Queueable {
         return card;
     }
 
+    /* Returns a card in Discard Pile */
     public int peek(int position)   {
         return array[position].getValue();
     }
 
+    /* Removes first card in Discard Pile */
     public Card remove()    {
         Card card = null;
         if(!isEmpty()) {
@@ -59,12 +69,12 @@ public class Queue implements Queueable {
             }
             return array[front++];
     }
-
+    /* Removes a card in a certain position in Discard Pile */
     public Card remove(int position)  {
         Card card = null;
         if(!isEmpty()){
             card = array[position];
-            
+
             for (int x = position; x < rear; x++) {
                 array[x] = array[x+1];
             }
