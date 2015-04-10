@@ -71,6 +71,8 @@ public class Node implements Linkable {
         next = node;
     }
     
+    //test
+    
     /**
      * Sets the previous pointer to the node to the left of the current node.
      * @param node the node to assign to the previous pointer.
