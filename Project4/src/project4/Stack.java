@@ -6,12 +6,16 @@ package project4;
 
 
 public class Stack implements Stackable {
-   
+   private Node top;
     /**
      * Displays the items stored in the stack.
      */
     public void display() {
-        
+        Node temp = top;
+        while (temp != null) {
+            System.out.println(temp.getValue());
+            temp = temp.getNext();
+        }
     }
     
     /**
@@ -19,7 +23,7 @@ public class Stack implements Stackable {
      * @return True if the stack is empty; otherwise, false.
      */
     public boolean isEmpty() {
-        
+        return top == null;
     }
     
     /**
@@ -27,7 +31,7 @@ public class Stack implements Stackable {
      * @return True if the stack is full; otherwise, false.
      */
     public boolean isFull() {
-        
+        return false;
     }
     
     /**
@@ -37,7 +41,10 @@ public class Stack implements Stackable {
      * @return The item that was removed.
      */
     public Node pop() {
-        
+        isEmpty();
+        Node temp = top;
+        top = temp.getNext();
+        return temp;
     }
     
     /**
@@ -47,6 +54,9 @@ public class Stack implements Stackable {
      * @param item The item to add.
      */
     public void push(Node item) {
-        
+        isFull();
+        item.setNext(top);
+        top = item;
     }
 }
+
