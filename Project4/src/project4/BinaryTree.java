@@ -2,43 +2,79 @@ package project4;
 
 
 
-
 public class BinaryTree implements Treeable {
+    private Node root;
 
-    /**
-     * Displays the State objects stored in the Binary Tree.
-     * @param ascending True if State objects ordered from smallest to largest; otherwise, from largest to smallest.
-     */
+
     public void display(boolean ascending) {
-        
+        if(ascending) {
+            displayTreeLNR(root); // Display values in ascending order
+        }
+        else {
+            displayTreeRNL(root); // Display values in descending order
+        }
     }
-    
-    /**
-     * Adds a State object to the appropriate location of the Binary Tree.
-     * @param state The State object to add.
-     */
+    private void displayTreeLNR(Node node) { // Recursive method
+        if(node != null) {
+            displayTreeLNR(node.getLeftChild());
+            System.out.print(node.getValue());
+            displayTreeLNR(node.getRightChild());
+        }
+    }
+    private void displayTreeRNL(Node node) { // Recursive method
+        if(node != null) {
+            displayTreeRNL(node.getRightChild());
+            System.out.print(node.getValue());
+            displayTreeRNL(node.getLeftChild());
+        }
+    }
+
     public void insert(Node state) {
-        
+        boolean inserted = false;
+        Node temp = root;
+
+        if(temp == null){
+            root = state;
+        }
+        else {
+            while(!inserted){
+                if(state.getValue() < temp.getValue()) {
+                    if(temp.getLeftChild() ==null) {
+                        temp.setLeftChild(item);
+                        inserted = true;
+                    }
+                    else {
+                        temp = temp.getLeftChild();
+                    }
+                }
+                else {
+                    if(temp.getRightChild() == null) {
+                        temp.setRightChild(item);
+                        inserted = true;
+                    }
+                    else {
+                        temp = temp.getRightChild();
+                    }
+                }
+            }
+
+        }
+
     }
-    
-    /**
-     * Determines if the Binary Tree is empty.
-     * @return True if the Binary Tree is empty; otherwise, false.
-     */
+
     public boolean isEmpty() {
-        
+
+        return root == null;
+
     }
-	
-	/**
-     * Removes a State object with the specified population from the Binary Tree.
-     * 
-     * Note:  The isEmpty method should be called first to prevent errors.
-     * @param population The population of the State to remove.
-     * @return The State object that was removed.
-     */
+
     public Node remove(int population) {
-        
+        if (root == null) {
+            return false;
+        } else {
+            return root.remove(population, null);
+            }
+        }
     }
-    
-    
+
 }
