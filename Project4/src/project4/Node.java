@@ -1,19 +1,21 @@
+/*
+ *  Project3 State.java
+ *  Rachel Bennett, Waseem Beraz, Mike Cross, James Spinella
+ */
+
 package project4;
 
-
+/*
+    State - Contains methods for determing appropriate parameter and return types of States
+ */
 
 public class Node implements Linkable {
- 
      private State state;
      private Node next;
      private Node previous;
      private Node leftChild;
      private Node rightChild;
-
-    
-    public Node (State state) {
-        this.state = state;
-    }
+     private int value;
     
     /**
      * Returns the current node's left child node. 
@@ -71,8 +73,6 @@ public class Node implements Linkable {
         next = node;
     }
     
-    //test
-    
     /**
      * Sets the previous pointer to the node to the left of the current node.
      * @param node the node to assign to the previous pointer.
@@ -88,5 +88,15 @@ public class Node implements Linkable {
     public void setRightChild(Node node) {
         rightChild = node;
     }
+    
+    
+    // Added methods that we aren't supposed to add!
+    // But I'm not sure how else to compare item and temp, as seen in node, without
+    // having a method that maintains the "current value" of the "currently-selected node"
+
+    public int getValue() {
+        return value;
+    }
+
     
 }

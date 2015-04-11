@@ -1,39 +1,49 @@
+/*
+ *  Project3 State.java
+ *  Rachel Bennett, Waseem Beraz, Mike Cross, James Spinella
+ */
+
 package project4;
 
-
-
-
-
+/*
+    State - Contains methods for determing appropriate parameter and return types of States
+ */
 
 public class Stack implements Stackable {
-   private Node top;
+    
+// Linked List declaration
+    private Node front;
+    private Node temp = new Node();
+    
     /**
      * Displays the items stored in the stack.
      */
     public void display() {
-        Node temp = top;
-        while (temp != null) {
-            System.out.println(temp.getValue());
-            temp = temp.getNext();
+        Node node = front;
+        while (node != null) {
+            System.out.println(node.getState().toString());
+            node = node.getNext();
         }
+        System.out.println();
     }
-    
+
     /**
      * Determines if the stack is empty.
      * @return True if the stack is empty; otherwise, false.
      */
     public boolean isEmpty() {
-        return top == null;
+        return front == null;
     }
-    
+
     /**
      * Determines if the stack is full.
      * @return True if the stack is full; otherwise, false.
      */
     public boolean isFull() {
+        // The list can never be full
         return false;
     }
-    
+
     /**
      * Removes a item from the top of the stack.
      * 
@@ -41,12 +51,15 @@ public class Stack implements Stackable {
      * @return The item that was removed.
      */
     public Node pop() {
+        //Node temp = front;
+        //front = front.getNext();
+        //return temp.getState();
         isEmpty();
-        Node temp = top;
-        top = temp.getNext();
+        Node temp = front;
+        front = temp.getNext();
         return temp;
     }
-    
+
     /**
      * Adds a item to the top of the stack.
      * 
@@ -54,9 +67,15 @@ public class Stack implements Stackable {
      * @param item The item to add.
      */
     public void push(Node item) {
-        isFull();
-        item.setNext(top);
-        top = item;
+        if (!isFull()) {
+            //Node temp = new Node(item);
+            if (front == null) {
+                front = temp;
+            } else {
+                temp.setNext(front);
+            }
+            front = temp;
+        }
     }
 }
 
