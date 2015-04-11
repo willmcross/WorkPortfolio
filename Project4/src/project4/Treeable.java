@@ -28,7 +28,7 @@ public interface Treeable {
      */
     public boolean isEmpty();
 	
-	/**
+    /**
      * Removes a State object with the specified population from the Binary Tree.
      * 
      * Note:  The isEmpty method should be called first to prevent errors.
