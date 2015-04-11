@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class Driver {
 
     void execute(String[] args) {
-        PriorityQueue pQueue = new PriorityQueue();
+        PriorityQueue = new PriorityQueue();
         Stack stackAdd = new Stack();
         Stack stackDel = new Stack();
         Stack stackUpd = new Stack();

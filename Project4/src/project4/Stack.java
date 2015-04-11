@@ -1,12 +1,12 @@
 /*
- *  Project3 State.java
+ *  Project4 Stack.java
  *  Rachel Bennett, Waseem Beraz, Mike Cross, James Spinella
  */
 
 package project4;
 
 /*
-    State - Contains methods for determing appropriate parameter and return types of States
+    Stack - Provides the methods required to implement a stack as a linked-list.
  */
 
 public class Stack implements Stackable {

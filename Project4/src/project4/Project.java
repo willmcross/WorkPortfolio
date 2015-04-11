@@ -1,5 +1,5 @@
 /*
- *  Project3 State.java
+ *  Project3 Project.java
  *  Rachel Bennett, Waseem Beraz, Mike Cross, James Spinella
  */
 
@@ -17,7 +17,7 @@ public class Project {
     public static void main(String[] args) {
         // Program Header
         System.out.println("Rachel Bennett, Waseem Beraz, Mike Cross, James Spinella");
-        System.out.println("Project 3 - Linked List\n");
+        System.out.println("Project 4 - Binary Trees\n");
         // Executes Driver
         new Driver().execute(args);
     }

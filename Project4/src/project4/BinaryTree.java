@@ -6,10 +6,6 @@ public class BinaryTree implements Treeable {
     
     private Node root;
     // public Node remove();
-    private Node temp;
-    private Node prev;
-    private Node next;
-    private Node old;
     
     public void display(boolean ascending) {
         if(ascending) {
@@ -34,18 +30,22 @@ public class BinaryTree implements Treeable {
         }
     }
 
-    public void insert(Node item) {
+    /**
+     * Adds a State object to the appropriate location of the Binary Tree.
+     * @param state The State object to add.
+     */
+    public void insert(Node state) {
         boolean inserted = false;
         Node temp = root;
 
         if(temp == null){
-            root = item;
+            root = state;
         }
         else {
             while(!inserted){
-                if(item.getValue() < temp.getValue()) {
+                if(state.getValue() < temp.getValue()) {
                     if(temp.getLeftChild() ==null) {
-                        temp.setLeftChild(item);
+                        temp.setLeftChild(state);
                         inserted = true;
                     }
                     else {
@@ -54,7 +54,7 @@ public class BinaryTree implements Treeable {
                 }
                 else {
                     if(temp.getRightChild() == null) {
-                        temp.setRightChild(item);
+                        temp.setRightChild(state);
                         inserted = true;
                     }
                     else {
@@ -82,10 +82,80 @@ public class BinaryTree implements Treeable {
      * @return The State object that was removed.
      */
     public Node remove(int population) {
-        prev = root.getPrevious();
-        next = root.getNext();
-        old = root;
-        root = prev;
-        return old;
+        boolean isLeftChild = false;
+        Node parent = root, temp = root;
+
+        // Determine how many children the node has and call the appropriate delete method
+        if(temp.getLeftChild() == null && temp.getRightChild() == null) {
+           deleteNoChildren(parent, isLeftChild); // See slide 25
+        }
+        else if(temp.getLeftChild() == null || temp.getRightChild() == null) {
+           deleteSingleChild(parent, isLeftChild, temp); // See slides 26
+        }
+        else {
+           deleteWithChildren(parent, isLeftChild, temp); // See slides 27
+        }
+        return temp;
     }
+    
+    // deleteNoChildren
+    private void deleteNoChildren(Node parent, boolean parentsLeftChild) {
+        if(parent == root && parent.getLeftChild() == null) {
+           root = null;
+        }
+        else if(parentsLeftChild) {
+           parent.setLeftChild(null);
+        }
+        else {
+           parent.setRightChild(null);
+        }
+    }
+    
+    // deleteSingleChild
+    private void deleteSingleChild(Node parent, boolean parentsLeftChild, Node temp) {
+      if(temp.getLeftChild() == null) { // Determine which child exists
+         if(parentsLeftChild) { // Determine path from parent deleted node is on
+            parent.setLeftChild(temp.getRightChild()); // Update parent’s left pointer
+         }
+         else {
+            parent.setRightChild(temp.getRightChild()); // Update parent’s right pointer
+         }
+      }
+      else {
+         if(parentsLeftChild) { // Determine path from parent deleted node is on
+            parent.setLeftChild(temp.getLeftChild()); // Update parent’s left pointer
+         }
+         else {
+            parent.setRightChild(temp.getLeftChild()); // Update parent’s right pointer
+         }
+      } 
+    }
+   
+    // deleteWithChildren
+    private void deleteWithChildren(Node parent, boolean parentsLeftChild, Node node) {
+       Node lastNode = null;
+	
+       if(parentsLeftChild) { // If the node to delete is parent’s left child
+           lastNode = node.getRightChild(); // Start with the node’s right child path
+           while(lastNode.getLeftChild() != null) { // Find lowest left child on the path
+               lastNode = lastNode.getLeftChild();
+           }
+           // Update the leftChild pointers of the parent node and the last node
+           lastNode.setLeftChild(node.getLeftChild());
+           parent.setLeftChild(node.getRightChild());
+       }
+       else { // If the node to delete is parent’s left child
+           lastNode = node.getLeftChild(); // Start with the node’s left child path
+           while(lastNode.getRightChild() != null) { // Find lowest right child on the path
+               lastNode = lastNode.getRightChild();
+           }
+           // Update the rightChild pointers of the parent node and the last node
+           lastNode.setRightChild(node.getRightChild());
+           parent.setRightChild(node.getLeftChild());
+       }
+   }
+   
+    
+    
+    
 }
