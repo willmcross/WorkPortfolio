@@ -41,6 +41,6 @@ public interface Stackable {
      * Note:  The isFull method should be called first to prevent errors.
      * @param item The item to add.
      */
-    public void push(Node item);
+    public void push(State item);
 }
 

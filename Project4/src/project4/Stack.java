@@ -9,14 +9,12 @@ package project4;
     Stack - Provides the methods required to implement a stack as a linked-list.
  */
 
-public class Stack implements Stackable {
-    
-// Linked List declaration
+public class Stack implements Stackable{
+
     private Node front;
-    //private Node temp = new Node();
-    
+
     /**
-     * Displays the items stored in the stack.
+     * Displays the items stored in the Stack.
      */
     public void display() {
         Node node = front;
@@ -24,20 +22,22 @@ public class Stack implements Stackable {
             System.out.println(node.getState().toString());
             node = node.getNext();
         }
-        //System.out.println();
+        System.out.println();
     }
 
     /**
-     * Determines if the stack is empty.
-     * @return True if the stack is empty; otherwise, false.
+     * Determines if the Stack is empty.
+     *
+     * @return True if the Stack is empty; otherwise, false.
      */
     public boolean isEmpty() {
         return front == null;
     }
 
     /**
-     * Determines if the stack is full.
-     * @return True if the stack is full; otherwise, false.
+     * Determines if the Stack is full.
+     *
+     * @return True if the Stack is full; otherwise, false.
      */
     public boolean isFull() {
         // The list can never be full
@@ -45,39 +45,34 @@ public class Stack implements Stackable {
     }
 
     /**
-     * Removes a item from the top of the stack.
-     * 
-     * Note:  The isEmpty method should be called first to prevent errors.
+     * Removes a item from the top of the Stack.
+     *
+     * Note: The isEmpty method should be called first to prevent errors.
+     *
      * @return The item that was removed.
      */
     public Node pop() {
-        //Node temp = front;
-        //front = front.getNext();
-        //return temp.getState();
-        isEmpty();
         Node temp = front;
-        front = temp.getNext();
+
+        front = front.getNext();
         return temp;
     }
 
     /**
-     * Adds a item to the top of the stack.
-     * 
-     * Note:  The isFull method should be called first to prevent errors.
+     * Adds a item to the top of the Stack.
+     *
+     * Note: The isFull method should be called first to prevent errors.
+     *
      * @param item The item to add.
      */
-    
-    public void push(Node item) {
+    public void push(State item) {
         if (!isFull()) {
-            Node temp = item;
+            Node temp = new Node(item);
 
-            if (front == null) {
-                front = temp;
-            } else {
+            if (front != null) {
                 temp.setNext(front);
             }
             front = temp;
         }
     }
 }
-

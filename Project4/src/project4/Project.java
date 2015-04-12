@@ -1,12 +1,12 @@
 /*
- *  Project3 Project.java
+ *  Project4 Project.java
  *  Rachel Bennett, Waseem Beraz, Mike Cross, James Spinella
  */
 
 package project4;
 
 /*
-    State - Contains methods for determing appropriate parameter and return types of States
+    Project - Takes arguments and calls the Driver.execute method
  */
 
 public class Project {

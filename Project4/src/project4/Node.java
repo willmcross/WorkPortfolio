@@ -1,12 +1,12 @@
 /*
- *  Project3 State.java
+ *  Project4 Node.java
  *  Rachel Bennett, Waseem Beraz, Mike Cross, James Spinella
  */
 
 package project4;
 
 /*
-    State - Contains methods for determing appropriate parameter and return types of States
+    Node - Defines the properties and methods of a linked list or binary tree node
  */
 
 public class Node implements Linkable {
