@@ -16,6 +16,10 @@ public class Node implements Linkable {
      private Node leftChild;
      private Node rightChild;
      private int value;
+     
+     Node(State state){
+         this.state = state;
+     }
     
     /**
      * Returns the current node's left child node. 

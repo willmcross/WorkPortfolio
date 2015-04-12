@@ -13,7 +13,7 @@ public class Stack implements Stackable {
     
 // Linked List declaration
     private Node front;
-    private Node temp = new Node();
+    //private Node temp = new Node();
     
     /**
      * Displays the items stored in the stack.
@@ -24,7 +24,7 @@ public class Stack implements Stackable {
             System.out.println(node.getState().toString());
             node = node.getNext();
         }
-        System.out.println();
+        //System.out.println();
     }
 
     /**
@@ -66,9 +66,11 @@ public class Stack implements Stackable {
      * Note:  The isFull method should be called first to prevent errors.
      * @param item The item to add.
      */
+    
     public void push(Node item) {
         if (!isFull()) {
-            //Node temp = new Node(item);
+            Node temp = item;
+
             if (front == null) {
                 front = temp;
             } else {

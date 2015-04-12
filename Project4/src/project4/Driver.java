@@ -19,9 +19,12 @@ public class Driver {
     BinaryTree bTree = new BinaryTree();
     // Integer array to hold 17 values
     int[] array = new int[17];
-
-    void execute(String[] args) {
-             
+        
+    void execute(String[] args) { 
+        
+    
+    readInputFiles("States.Input.A.txt", "States.Input.B.txt");     
+        
     /********************/     
     /** Console Output **/
     /********************/  
@@ -65,7 +68,7 @@ public class Driver {
         
     }
     
-    private void readInputFiles(String fileName1, String fileName2) {
+    public void readInputFiles(String fileName1, String fileName2) {
 
             String line1 = ""; //Stores state data read in from the first input file
 
@@ -143,19 +146,5 @@ public class Driver {
             
     }
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+             
 }
