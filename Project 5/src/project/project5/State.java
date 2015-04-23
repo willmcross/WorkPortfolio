@@ -1,7 +1,8 @@
 package project.project5;
 
 /**
- * Created by jspinella on 4/20/15.
+ * Project.java - Executes driver, etc.
  */
+
 public class State {
 }
