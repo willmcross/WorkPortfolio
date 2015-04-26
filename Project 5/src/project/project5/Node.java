@@ -4,11 +4,16 @@ package project.project5;
  * Project.java - Executes driver, etc.
  */
 
-public class Node {
+public class Node implements Linkable {
     
-    private State state;
     private Node next;
+    private State state;
     
+    
+    public Node(State state){
+        this.state = state;
+    }
+       
     /**
      * Returns the node to the right of the current node.
      * @return the node to the right of the current node.
@@ -30,6 +35,6 @@ public class Node {
      * @param node the node to assign to the next pointer.
      */
     public void setNext(Node node) {
-        next = node;
+        this.next = next;
     }
 }

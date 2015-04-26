@@ -11,7 +11,7 @@ public class Project {
     public static void main(String[] args) {
         // Program Header
         System.out.println("Rachel Bennett, Waseem Beraz, Mike Cross, James Spinella");
-        System.out.println("Project 4 - Binary Trees\n");
+        System.out.println("Project 5 - Hash Tables\n");
         // Executes Driver
         new Driver().execute(args);
     }
